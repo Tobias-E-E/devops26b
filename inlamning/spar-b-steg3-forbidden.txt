@@ -1,0 +1,21 @@
+$ oc get kustomizations.kustomize.toolkit.fluxcd.io
+NAME               AGE     READY   STATUS
+template-app-dev   2m17s   False   Deployment/tobias-e-e-devops-dev/frontend dry-run failed (Forbidden): deployments.apps "frontend" is forbidden: User "system:serviceaccount:tobias-e-e-devops-dev:default" cannot patch resource "deployments" in API group "apps" in the namespace "tobias-e-e-devops-dev"...
+
+$ oc describe kustomizations.kustomize.toolkit.fluxcd.io template-app-dev   (Status → Conditions)
+Status:
+  Conditions:
+    Last Transition Time:  2026-10-13T09:03:39Z
+    Message:               Detecting drift for revision main@sha1:a6d4c5b017c124e82e9e5600a5333ddf424795e9 with a timeout of 30s
+    Observed Generation:   1
+    Reason:                ProgressingWithRetry
+    Status:                True
+    Type:                  Reconciling
+    Last Transition Time:  2026-10-13T09:03:39Z
+    Message:               Deployment/tobias-e-e-devops-dev/frontend dry-run failed (Forbidden): deployments.apps "frontend" is forbidden: User "system:serviceaccount:tobias-e-e-devops-dev:default" cannot patch resource "deployments" in API group "apps" in the namespace "tobias-e-e-devops-dev"
+
+    Observed Generation:  1
+    Reason:               ReconciliationFailed
+    Status:               False
+    Type:                 Ready
+  History:

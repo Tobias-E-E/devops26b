@@ -1,0 +1,14 @@
+$ oc scale deployment backend --replicas=4
+deployment.apps/backend scaled
+$ oc get deployments -w      # (pollat var 5:e sekund i stället för -w)
+12:09:21  backend    2/4     4            2           5m25s
+12:09:26  backend    2/4     4            2           5m30s
+12:09:31  backend    2/4     4            2           5m35s
+12:09:36  backend    3/4     4            3           5m40s
+12:09:41  backend    4/4     4            4           5m45s
+12:09:47  backend    2/2     2            2           5m51s
+
+$ oc get deployments
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+backend    2/2     2            2           5m51s
+frontend   1/1     1            1           5m51s

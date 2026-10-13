@@ -1,0 +1,9 @@
+$ oc get deployments   # FÖRE mergen (12:08:17)
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+backend    1/1     1            1           4m21s
+frontend   1/1     1            1           4m21s
+
+$ oc get deployments   # EFTER mergen av PR #1 (12:09:04)
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+backend    2/2     2            2           5m8s
+frontend   1/1     1            1           5m8s
