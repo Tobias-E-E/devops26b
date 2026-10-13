@@ -1,0 +1,20 @@
+$ oc describe rolebinding flux-applier-egen
+Name:         flux-applier-egen
+Labels:       <none>
+Annotations:  <none>
+Role:
+  Kind:  Role
+  Name:  flux-applier
+Subjects:
+  Kind            Name          Namespace
+  ----            ----          ---------
+  ServiceAccount  flux-applier  tobias-e-e-devops-dev
+
+$ oc get kustomizations.kustomize.toolkit.fluxcd.io
+NAME               AGE     READY   STATUS
+template-app-dev   4m47s   True    Applied revision: main@sha1:a6d4c5b017c124e82e9e5600a5333ddf424795e9
+
+$ oc get services   (frontend raderad 12:04:46, tillbaka 12:04:57)
+NAME       TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+backend    ClusterIP   172.30.137.127   <none>        8000/TCP   2m28s
+frontend   ClusterIP   172.30.74.61     <none>        8080/TCP   89s
